@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Wars RPG</title>
+    <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+</head>
+<body>
+    <section class="game">
+        <div class="chooseCharacter">
+            <h1>Choose your character!</h1>
+          <div class="characters">
+            <div id="character1" class="character1"></div>
+            <div id="character2" class="character2"></div>
+            <div id="character3" class="character3"></div>
+            <div id="character4" class="character4"></div>
+          </div>
+        </div>
+
+        <div class="enemyCharacters">
+            <h2>Your enemies</h2>
+            <div class="enemies"></div>
+            <h2>Choose someone to fight!</h2>
+        </div>
+
+        <div class="arena">
+            <div class="arenaHeading">
+                <div class="you">
+                  <h1>You</h1>
+                  <div id="youImage"></div>
+                  <div class="youStats">
+                    <p class="youHPHead">HP:</p>
+                    <p id="youHP"></p>
+                    <p class="youAttackPowerHead">Attack Power:</p>
+                    <p id="youAttackPower"></p>
+                  </div>
+                </div>
+                <div class="direct">
+                    <p id="direct"></p>
+                    <button id="attack">Attack</button>
+                </div>
+                <div class="defender">
+                  <h1>Defender</h1>
+                  <div id="defenderImage"></div>
+                  <div class="defenderStats">
+                      <p class="defenderHPHead"></p>
+                      <p id="defenderHP"></p>
+                      <p class="defenderCounterAttackHead"></p>
+                      <p id="defenderCounterAttack"></p>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
