@@ -9,14 +9,41 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
 <body>
+    <section class="heading">
+        <h1>Jedi Challenge</h1>
+    </section>
     <section class="game">
         <div class="chooseCharacter">
             <h1>Choose your character!</h1>
           <div class="characters">
-            <div id="character1" class="character1"></div>
-            <div id="character2" class="character2"></div>
-            <div id="character3" class="character3"></div>
-            <div id="character4" class="character4"></div>
+            <div class="character1">
+                <a id="character1" href="#">
+                <p>Yoda</p>
+                <img src="assets/images/char1.jpg" height="150px">
+                <p id="hP1"></p>
+                </a>
+            </div>
+            <div  class="character2">
+                <a id="character2" href="#">
+                <p>Luke Skywalker</p>
+                <img src="assets/images/char2.jpg" height="150px">
+                <p id="hP2"></p>
+            </a>
+            </div>
+            <div  class="character3">
+                <a id="character3" href="#">
+                <p>Obi Wan Kenobi</p>
+                <img src="assets/images/char3.jpg" height="150px">
+                <p id="hP3"></p>
+            </a>
+            </div>
+            <div  class="character4">
+                <a id="character4" href="#">
+                <p>Mace Windu</p>
+                <img src="assets/images/char4.jpeg" height="150px">
+                <p id="hP4"></p>
+            </a>
+            </div>
           </div>
         </div>
 
@@ -46,9 +73,9 @@
                   <h1>Defender</h1>
                   <div id="defenderImage"></div>
                   <div class="defenderStats">
-                      <p class="defenderHPHead"></p>
+                      <p class="defenderHPHead">HP:</p>
                       <p id="defenderHP"></p>
-                      <p class="defenderCounterAttackHead"></p>
+                      <p class="defenderCounterAttackHead">Counter Attack:</p>
                       <p id="defenderCounterAttack"></p>
                   </div>
               </div>
@@ -56,5 +83,9 @@
         </div>
     </section>
     
+<script src="assets/javascript/game.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 </body>
 </html>
