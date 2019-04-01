@@ -1,9 +1,13 @@
 var offenseChar = "",
-    offenseAttackPower,
+    initialOffenseAttackPower,
+    offenseAttackPower=0,
     offenseHealthPoints,
-    defenseChar="",
+    defenseChar,
+    defenseCharArray=[],
     defenseCounterAttackPower,
-    defenseHealthPoints
+    defenseHealthPoints,
+    defender
+    
 
 var yoda= $("#character1"), //contains name, picture, empty p for inital HP
     luke= $("#character2"),
@@ -26,18 +30,21 @@ var characters= [
       },
        {
           name: "Luke Skywalker",
+          display: $("#character2"),
           hP: 100,
           initialAttackPower: 5,
           counterAttackPower: 7
       },
        {
           name: "Obi Wan Kenobi",
+          display: obi,
           hP: 130,
           initialAttackPower: 8,
           counterAttackPower: 11
       },
        {
           name: "Mace Windu",
+          display: mace,
           hP: 120,
           initialAttackPower: 7,
           counterAttackPower: 10
@@ -75,12 +82,15 @@ yoda.on("click", function(){
   if (offenseChar === ""){
     offenseChar= character1
     defenseChar= characters.filter(function(item){
-      return item.name !== "Yoda"
+      return item.name !== offenseChar["name"]
     })
     $(".enemies").append(luke)
     $(".enemies").append(obi)
-    $(".enemies").append(mace)  
-} 
+    $(".enemies").append(mace)
+  }else if(offenseChar !== "" && defender === undefined){
+    defender= character1
+    $("#defenderImage").append(yoda)
+}
 })
 
 
@@ -94,7 +104,10 @@ luke.on("click", function(){
     $(".enemies").append(yoda)
     $(".enemies").append(obi)
     $(".enemies").append(mace)
-  }
+  }else if(offenseChar !== "" && defender === undefined){
+    defender= character2
+    $("#defenderImage").append(luke)
+}
 })
 
 
@@ -107,13 +120,16 @@ obi.on("click", function(){
     $(".enemies").append(yoda)
     $(".enemies").append(luke)
     $(".enemies").append(mace)
-  }
+  }else if(offenseChar !== "" && defender === undefined){
+    defender= character3
+    $("#defenderImage").append(obi)
+}
 })
 
 
 
 mace.on("click", function(){
-  if(offenseChar === 0){
+  if(offenseChar === ""){
     offenseChar= character4
     defenseChar= characters.filter(function(item){
       return item.name !== "Mace Windu"
@@ -121,13 +137,26 @@ mace.on("click", function(){
     $(".enemies").append(yoda)
     $(".enemies").append(luke)
     $(".enemies").append(obi)
-  }
+  }else if(offenseChar !== "" && defender === undefined){
+    defender= character4
+    $("#defenderImage").append(mace)
+}
 })
 
+initialOffenseAttackPower= offenseChar["initialAttackPower"]
+offenseHealthPoints=offenseChar["hP"]
 
+$("#attack").on("click", function(){
+    
+    offenseAttackPower += initialOffenseAttackPower
+    defenseCounterAttackPower= defender["counterAttackPower"]
+    defenseHealthPoints= defender["hP"]- offenseAttackPower
+    $("#defenderHP").text(defenseHealthPoints)
+    
+    offenseHealthPoints-=defenseCounterAttackPower
+    $("#youHP").text(offenseHealthPoints)
 
-
-
+})
 
 
 
