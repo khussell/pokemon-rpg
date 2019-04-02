@@ -1,52 +1,40 @@
 var offenseChar = "",
-    initialOffenseAttackPower,
-    offenseAttackPower=0,
-    offenseHealthPoints,
-    defenseChar,
-    defenseCharArray=[],
-    defenseCounterAttackPower,
-    defenseHealthPoints,
-    defender
+    defender= ""
+  
+    
     
 
 var yoda= $("#character1"), //contains name, picture, empty p for inital HP
     luke= $("#character2"),
     obi= $("#character3"),
-    mace= $("#character4"),
-    enemies = $(".enemies"), //empty div for enemies to be placed
-    youImage= $("#youImage"),
-    youHP= $("#youHP"),
-    youAttack= $("#youAttackPower"),
-    defenderImage= $("#defenderImage"),
-    defenderHP= $("#defenderHP"),
-    defenderCounter= $("#defenderCounterAttack")
+    mace= $("#character4")
+     //empty div for enemies to be placed
+    
+    
 
 var characters= [
        {
           name: "Yoda",
           hP: 150,
-          initialAttackPower: 9,
+          attackPower: 9,
           counterAttackPower: 13
       },
        {
           name: "Luke Skywalker",
-          display: $("#character2"),
           hP: 100,
-          initialAttackPower: 5,
+          attackPower: 5,
           counterAttackPower: 7
       },
        {
           name: "Obi Wan Kenobi",
-          display: obi,
           hP: 130,
-          initialAttackPower: 8,
+          attackPower: 8,
           counterAttackPower: 11
       },
        {
           name: "Mace Windu",
-          display: mace,
           hP: 120,
-          initialAttackPower: 7,
+          attackPower: 7,
           counterAttackPower: 10
       }
     ]
@@ -57,13 +45,6 @@ var character1= characters[0],
     character3= characters[2],
     character4= characters[4]
 
-
-
-
-
-var game={
-   
-}
 
 
 
@@ -87,7 +68,7 @@ yoda.on("click", function(){
     $(".enemies").append(luke)
     $(".enemies").append(obi)
     $(".enemies").append(mace)
-  }else if(offenseChar !== "" && defender === undefined){
+  }else if(offenseChar !== "" && defender === ""){
     defender= character1
     $("#defenderImage").append(yoda)
 }
@@ -104,7 +85,7 @@ luke.on("click", function(){
     $(".enemies").append(yoda)
     $(".enemies").append(obi)
     $(".enemies").append(mace)
-  }else if(offenseChar !== "" && defender === undefined){
+  }else if(offenseChar !== "" && defender === ""){
     defender= character2
     $("#defenderImage").append(luke)
 }
@@ -120,7 +101,7 @@ obi.on("click", function(){
     $(".enemies").append(yoda)
     $(".enemies").append(luke)
     $(".enemies").append(mace)
-  }else if(offenseChar !== "" && defender === undefined){
+  }else if(offenseChar !== "" && defender === ""){
     defender= character3
     $("#defenderImage").append(obi)
 }
@@ -137,24 +118,31 @@ mace.on("click", function(){
     $(".enemies").append(yoda)
     $(".enemies").append(luke)
     $(".enemies").append(obi)
-  }else if(offenseChar !== "" && defender === undefined){
+  }else if(offenseChar !== "" && defender === ""){
     defender= character4
     $("#defenderImage").append(mace)
 }
 })
 
-initialOffenseAttackPower= offenseChar["initialAttackPower"]
-offenseHealthPoints=offenseChar["hP"]
+
 
 $("#attack").on("click", function(){
+ var initialAttack= offenseChar["attackPower"],
+  attackPower= offenseChar["attackPower"],
+  oChangedHP= offenseChar["hP"],
+  dChangedHP= defender["hP"],
+  counterAttackPower= defender["counterAttackPower"]
+    oChangedHP -= counterAttackPower
+    dChangedHP -= attackPower
+    $("#defenderHP").text(dChangedHP)   
+    $("#youHP").text(oChangedHP)
+    attackPower += initialAttack
     
-    offenseAttackPower += initialOffenseAttackPower
-    defenseCounterAttackPower= defender["counterAttackPower"]
-    defenseHealthPoints= defender["hP"]- offenseAttackPower
-    $("#defenderHP").text(defenseHealthPoints)
+  
+
     
-    offenseHealthPoints-=defenseCounterAttackPower
-    $("#youHP").text(offenseHealthPoints)
+    
+  
 
 })
 
