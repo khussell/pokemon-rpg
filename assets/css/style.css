@@ -136,3 +136,20 @@ img{padding: 20px}
     top: 520px;
     left: 45%;
 }
+
+
+#gotOne{
+    position: absolute;
+    animation-name: bounce;
+        animation-duration: 1s;
+        animation-iteration-count: 2;
+        animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce{
+    from {transform: translate(0, 0px);}
+        25%{transform: translate(0, 10px);}
+        50% {transform: translate(0, 0px);} 
+        75%{transform: translate(0, 10px)}
+        to {transform: translate(0, 0px);} 
+}
