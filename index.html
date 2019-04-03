@@ -4,83 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Star Wars RPG</title>
+    <title>Catch'em All</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
 <body>
     <section class="heading">
-        <h1>Jedi Challenge</h1>
+        <h1>Gotta Catch'em All!!!</h1>
     </section>
     <section class="game">
         <div class="chooseCharacter">
-            <h1>Choose your character!</h1>
+            <h2 class="chooseF">Choose your fighter!</h1>
           <div class="characters">
             <div class="character1">
                 <a id="character1" href="#">
-                <p>Yoda</p>
-                <img src="assets/images/char1.jpg" height="150px">
+                <p>Charmander</p>
+                <img src="assets/images/char1.png" height="140px">
                 <p id="hP1"></p>
                 </a>
             </div>
             <div  class="character2">
                 <a id="character2" href="#">
-                <p>Luke Skywalker</p>
-                <img src="assets/images/char2.jpg" height="150px">
+                <p>Squirtle</p>
+                <img src="assets/images/char2.png" height="140px">
                 <p id="hP2"></p>
             </a>
             </div>
             <div  class="character3">
                 <a id="character3" href="#">
-                <p>Obi Wan Kenobi</p>
+                <p>Pikachu</p>
                 
-                      <img src="assets/images/char3.jpg" height="150px">
+                      <img src="assets/images/char3.png" height="140px">
                 
                 <p id="hP3"></p>
             </a>
             </div>
             <div  class="character4">
                 <a id="character4" href="#">
-                <p>Mace Windu</p>
-                <img src="assets/images/char4.jpeg" height="150px">
+                <p>Bulbasaur</p>
+                <img src="assets/images/char4.png" height="140px">
                 <p id="hP4"></p>
             </a>
             </div>
+          <img id="winPhoto" src="assets/images/endGame.png" height="400px">
           </div>
         </div>
 
         <div class="enemyCharacters">
-            <h2>Your Friendly enemies</h2>
+            <h2>Choose one to fight!</h2>
             <div class="enemies"></div>
-            <h2>Choose someone to fight!</h2>
+            
         </div>
 
         <div class="arena">
             <div class="arenaHeading">
-                <div class="you">
-                  <h1>You</h1>
-                  <div id="youImage"></div>
-                  <div class="youStats">
-                    <p class="youHPHead">HP:</p>
-                    <p id="youHP"></p>
-                    <p class="youAttackPowerHead">Attack Power:</p>
-                    <p id="youAttackPower"></p>
-                  </div>
+                <div class="gameStats">
+                    <p class="directions">Click button to attack your enemy, but watchout he has a counter attack!</p>
+                    <p class="yourHP"></p>
+                    <p class="defenderHP"></p>
+                    <p class="stats"></p>
+                </div>
+                <div class="defender">
+                            <h1 class="defenderHead">Defender!</h1>
+                           
+                         
+                            <div id="defenderImage"></div>
+                            <div id="pokeBall">
+                                <img id="gotOne" src="assets/images/gotOne.png" height="150px">
+                            </div>
+
+                        </div>
+                
                 </div>
                 <div class="direct">
                     <p id="direct"></p>
                     <button id="attack">Attack</button>
                 </div>
-                <div class="defender">
-                  <h1>Defender</h1>
-                  <div id="defenderImage"></div>
-                  <div class="defenderStats">
-                      <p class="defenderHPHead">HP:</p>
-                      <p id="defenderHP"></p>
-                      <p class="defenderCounterAttackHead">Counter Attack:</p>
-                      <p id="defenderCounterAttack"></p>
-                  </div>
-              </div>
+                
             </div>
         </div>
     </section>

@@ -1,5 +1,138 @@
+body{
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    font-family: 'Abel', sans-serif;
+}
+
+.heading{
+    text-align: center;
+    font-size: 30px;
+    padding-top: 20px;
+}
+
+.chooseF{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.chooseCharacter{
+    float: center;
+    padding: 0;
+}
+
+.enemyCharacters{
+    float: right;
+    display: none;
+}
+h2{
+    clear: both;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+    
+}
+img{padding: 20px}
+
+.character1,
+.character2,
+.character3,
+.character4{
+    border: gray outset 3px;
+    margin: 0 auto;
+    
+    
+}
+
+.game{
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+
+
+
+
+.arena{
+    clear: both;
+    margin-left: 20px;
+    display: none;
+    
+}
+
+.arenaHeading{
+    clear: both;
+    display: flex;
+    margin-top: 50px;
+    
+}
+
+
+.defenderHead{
+    font-size: 20px;
+    padding: 20px 0px;
+    text-align: left;
+    font-weight: bold;
+    color: red;
+    text-shadow: 1px 1px black;
+}
+
+.gameStats{
+    position: absolute;
+    top: 400px;
+    left: 600px;
+    text-align: left;
+}
+
+.directions{
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+
+.yourHP,
+.defenderHP,
+.stats{
+    font-size: 18px;
+}
 .enemies,
 .characters{
     display: flex;
     padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+   
+}
+
+
+#gotOne{
+    display: none;
+}
+
+#winPhoto{
+    display: none;
+}
+
+#attack{
+    position: absolute;
+    left: 600px;
+    bottom: 180px;
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.resetButton{
+    
+    height: 30px;
+    font-size: 20px;
+    width: 175px;
+    position: absolute;
+    top: 520px;
+    left: 45%;
 }

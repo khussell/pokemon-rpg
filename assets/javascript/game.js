@@ -1,41 +1,43 @@
 var offenseChar = "",
     defender= ""
-  
-    
-    
+    attackPower= 0;
+    oChangedHP= 0;
+    dChangedHP= 0;
+    counterAttackPower= 0
 
-var yoda= $("#character1"), //contains name, picture, empty p for inital HP
-    luke= $("#character2"),
-    obi= $("#character3"),
-    mace= $("#character4")
+var mander= $(".character1"), //contains name, picture, empty p for inital HP
+    squirtle= $(".character2"),
+    pikachu= $(".character3"),
+    bulb= $(".character4")
+    
      //empty div for enemies to be placed
     
     
 
 var characters= [
        {
-          name: "Yoda",
+          name: "Charmander",
           hP: 150,
           attackPower: 9,
-          counterAttackPower: 13
+          counterAttackPower: 12
       },
        {
-          name: "Luke Skywalker",
+          name: "Squirtle",
           hP: 100,
           attackPower: 5,
           counterAttackPower: 7
       },
        {
-          name: "Obi Wan Kenobi",
+          name: "Pikachu",
           hP: 130,
           attackPower: 8,
-          counterAttackPower: 11
+          counterAttackPower: 9
       },
        {
-          name: "Mace Windu",
+          name: "Bulbasaur",
           hP: 120,
           attackPower: 7,
-          counterAttackPower: 10
+          counterAttackPower: 5
       }
     ]
 
@@ -43,10 +45,14 @@ var characters= [
 var character1= characters[0],
     character2= characters[1],
     character3= characters[2],
-    character4= characters[4]
+    character4= characters[3]
 
 
-
+var newButton= $("<button>")
+    newButton.addClass("resetButton")
+    $(".characters").append(newButton)
+    newButton.text("reset game")
+    newButton.hide()
 
 $(document).ready(function(){
 
@@ -59,86 +65,143 @@ $(document).ready(function(){
 
 
 
-yoda.on("click", function(){
+mander.on("click", function(){
+  $(".chooseCharacter").css("float", "left")
+  $("#gotOne").hide()
   if (offenseChar === ""){
+    
     offenseChar= character1
     defenseChar= characters.filter(function(item){
       return item.name !== offenseChar["name"]
     })
-    $(".enemies").append(luke)
-    $(".enemies").append(obi)
-    $(".enemies").append(mace)
+    $(".enemyCharacters").show()
+    $(".enemies").append(squirtle)
+    $(".enemies").append(pikachu)
+    $(".enemies").append(bulb)
   }else if(offenseChar !== "" && defender === ""){
     defender= character1
-    $("#defenderImage").append(yoda)
-}
+    $("#defenderImage").append(mander)
+    dChangedHP = defender["hP"]
+    $(".defenderHead").show()
+    $(".directions").text("Click the button to attack, but watch out he has a counter attack!")
+    $("#defenderImage").css("border", "red outset 3px")
+    $(".defenderHP").html("Defender HP: " + dChangedHP)
+    $(".stats").html("")
+    $(".arena").show()
+} 
 })
 
 
 
-luke.on("click", function(){
+squirtle.on("click", function(){
+  $(".chooseCharacter").css("float", "left")
+  $("#gotOne").hide()
   if(offenseChar === ""){
     offenseChar= character2
     defenseChar= characters.filter(function(item){
-      return item.name !== "Luke Skywalker"
+      return item.name !== "Squirtle"
       })
-    $(".enemies").append(yoda)
-    $(".enemies").append(obi)
-    $(".enemies").append(mace)
+    $(".enemyCharacters").show()  
+    $(".enemies").append(mander)
+    $(".enemies").append(pikachu)
+    $(".enemies").append(bulb)
   }else if(offenseChar !== "" && defender === ""){
     defender= character2
-    $("#defenderImage").append(luke)
+    $("#defenderImage").append(squirtle)
+    dChangedHP = defender["hP"]
+    $(".defenderHead").show()
+    $(".directions").text("Click the button to attack, but watch out he has a counter attack!")
+    $("#defenderImage").css("border", "red outset 3px")
+    $(".defenderHP").html("Defender HP: " + dChangedHP) 
+    $(".stats").html("") 
+    $(".arena").show()
 }
 })
 
 
-obi.on("click", function(){
+pikachu.on("click", function(){
+  $(".chooseCharacter").css("float", "left")
+  $("#gotOne").hide()
   if(offenseChar === ""){
+    
     offenseChar= character3
     defenseChar= characters.filter(function(item){
-      return item.name !== "Obi Wan Kenobi"
+      return item.name !== "Pikachu"
     })
-    $(".enemies").append(yoda)
-    $(".enemies").append(luke)
-    $(".enemies").append(mace)
+    $(".enemyCharacters").show()
+    $(".enemies").append(mander)
+    $(".enemies").append(squirtle)
+    $(".enemies").append(bulb)
   }else if(offenseChar !== "" && defender === ""){
     defender= character3
-    $("#defenderImage").append(obi)
+    $("#defenderImage").append(pikachu)
+    dChangedHP = defender["hP"]
+    $(".defenderHead").show()
+    $(".directions").text("Click the button to attack, but watch out he has a counter attack!")
+    $("#defenderImage").css("border", "red outset 3px")
+    $(".defenderHP").html("Defender HP: " + dChangedHP)
+    $(".stats").html("")
+    $(".arena").show()
 }
 })
 
 
 
-mace.on("click", function(){
+bulb.on("click", function(){
+  $(".chooseCharacter").css("float", "left")
+  $("#gotOne").hide()
   if(offenseChar === ""){
     offenseChar= character4
     defenseChar= characters.filter(function(item){
-      return item.name !== "Mace Windu"
+      return item.name !== "Bulbasaur"
     })
-    $(".enemies").append(yoda)
-    $(".enemies").append(luke)
-    $(".enemies").append(obi)
+    $(".enemyCharacters").show()
+    $(".enemies").append(mander)
+    $(".enemies").append(squirtle)
+    $(".enemies").append(pikachu)
   }else if(offenseChar !== "" && defender === ""){
     defender= character4
-    $("#defenderImage").append(mace)
+    $("#defenderImage").append(bulb)
+    dChangedHP = defender["hP"]
+    $(".defenderHead").show()
+    $(".directions").text("Click the button to attack, but watch out he has a counter attack!")
+    $("#defenderImage").css("border", "red outset 3px")
+    $(".defenderHP").html("Defender HP: " + dChangedHP)
+    $(".stats").html("")
+    $(".arena").show()
 }
 })
 
 
 
 $("#attack").on("click", function(){
- var initialAttack= offenseChar["attackPower"],
-  attackPower= offenseChar["attackPower"],
-  oChangedHP= offenseChar["hP"],
-  dChangedHP= defender["hP"],
-  counterAttackPower= defender["counterAttackPower"]
-    oChangedHP -= counterAttackPower
-    dChangedHP -= attackPower
-    $("#defenderHP").text(dChangedHP)   
-    $("#youHP").text(oChangedHP)
-    attackPower += initialAttack
-    
-  
+ var initialAttack= offenseChar["attackPower"]
+     counterAttackPower= defender["counterAttackPower"]
+     if(attackPower === 0){
+       attackPower= offenseChar["attackPower"]
+       oChangedHP= offenseChar["hP"]
+       oChangedHP -= counterAttackPower
+       dChangedHP -= attackPower
+       game.characterHPText()
+       $(".defenderHP").html("Defender HP: " + dChangedHP)   
+       $(".yourHP").html("Your HP: " + oChangedHP)
+       $(".stats").html("You gave " + attackPower + " damage and took " + counterAttackPower +" damage.")
+       attackPower += initialAttack
+       game.didPlayerLose()
+       game.didDefenderLose()
+     
+     }else{
+      oChangedHP -= counterAttackPower
+      dChangedHP -= attackPower
+      game.characterHPText()
+      $(".defenderHP").html("Defender HP: " + dChangedHP)   
+      $(".yourHP").html("Your HP: " + oChangedHP)
+      $(".stats").html("You gave " + attackPower + " damage and took " + counterAttackPower +" damage.")
+      attackPower += initialAttack
+      game.didPlayerLose()
+      game.didDefenderLose()
+      
+     }
 
     
     
@@ -146,7 +209,89 @@ $("#attack").on("click", function(){
 
 })
 
-
+$(".resetButton").on("click", function(){
+  location.reload()
+})
 
 
 })
+
+
+var game = {
+    didPlayerLose: function(){
+      if (oChangedHP <= 0){
+        this.lost()
+      }
+    },
+
+    lost: function(){
+      if (oChangedHP <=0){
+        $(newButton).show()
+      }else{
+        //defender lost, if there are no other defenders available this.win()
+        //defender lost so their image will disappear and defender stats will re-initialize
+        $("#defenderImage").empty()
+        $(".defenderHead").hide()
+        $("#defenderImage").css("border", "none")
+        $("#gotOne").show()
+        $(".directions").text("Yay, you got one! Click another one to fight!")
+        defender=""
+        dChangedHP= 0
+        counterAttackPower= 0
+        $(".defenderHP").html("Defender HP: " + dChangedHP)   
+        if($(".enemies").html()=== ''){
+          this.win()
+        }
+      }
+    },
+
+    didDefenderLose: function(){
+      if(dChangedHP <=0){
+        this.lost()
+      }
+    },
+  
+
+    win: function(){
+     
+      $(".arena").hide()
+      $(".enemyCharacters").hide()
+      $(newButton).show()
+      $("#winPhoto").show()
+      $(".character1").css("border", "none")
+      $(".character2").css("border", "none")
+      $(".character3").css("border", "none")
+      $(".character4").css("border", "none")
+      $("p").hide()
+      $("h1").text("Congrats, you caught them ALL!!!")
+      $("h2").text(offenseChar["name"] + " wins!")
+      $("img").css("height", "400px")
+    },
+
+
+    characterHPText: function(){
+      if(offenseChar === character1){
+        $("#hP1").text(oChangedHP)
+      }else if(offenseChar === character2){
+        $("#hP2").text(oChangedHP)
+      }else if(offenseChar === character3){
+        $("#hP3").text(oChangedHP)
+      }else{
+        $("#hP4").text(oChangedHP)
+      }
+       
+      if(defender === character1){
+        $("#hP1").text(dChangedHP)
+      }else if(defender === character2){
+        $("#hP2").text(dChangedHP)
+      }else if(defender === character3){
+        $("#hP3").text(dChangedHP)
+      }else{
+        $("#hP4").text(dChangedHP)
+      }
+    }
+   
+
+}
+
+
