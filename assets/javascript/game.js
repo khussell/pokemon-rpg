@@ -179,6 +179,7 @@ $("#attack").on("click", function(){
      counterAttackPower= defender["counterAttackPower"]
      if(defender === ""){
        $(".directions").text("You need to choose someone to fight!")
+       $(".stats").text("")
      }else if(attackPower === 0){
        attackPower= offenseChar["attackPower"]
        oChangedHP= offenseChar["hP"]
@@ -255,6 +256,9 @@ var game = {
     lost: function(){
       if (oChangedHP <=0){
         $(newButton).show()
+        $(".arena").hide()
+        $(".lost").css("display", "block")
+        $(".lost").text("Sorry " + offenseChar["name"] + " , you lost!!!")
       }else{
         //defender lost, if there are no other defenders available this.win()
         //defender lost so their image will disappear and defender stats will re-initialize
