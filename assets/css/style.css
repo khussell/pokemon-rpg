@@ -14,8 +14,8 @@ body{
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    
 }
+
 .chooseCharacter{
     float: center;
     padding: 0;
@@ -25,17 +25,19 @@ body{
     float: right;
     display: none;
 }
+
 h2{
     clear: both;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 a{
     text-decoration: none;
     
 }
+
 img{padding: 20px}
 
 .character1,
@@ -43,36 +45,27 @@ img{padding: 20px}
 .character3,
 .character4{
     border: gray outset 3px;
-    margin: 0 auto;
-    
-    
+    margin: 0 auto;   
 }
 
 .game{
     width: 900px;
     margin: 0 auto;
     text-align: center;
-    
+   
 }
-
-
-
-
 
 .arena{
     clear: both;
     margin-left: 20px;
-    display: none;
-    
+    display: none;   
 }
 
 .arenaHeading{
     clear: both;
     display: flex;
-    margin-top: 50px;
-    
+    margin-top: 50px;    
 }
-
 
 .defenderHead{
     font-size: 20px;
@@ -100,15 +93,14 @@ img{padding: 20px}
 .stats{
     font-size: 18px;
 }
+
 .enemies,
 .characters{
     display: flex;
     padding: 10px;
     width: 100%;
-    margin: 0 auto;
-   
+    margin: 0 auto;  
 }
-
 
 #gotOne{
     display: none;

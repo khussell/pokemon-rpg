@@ -9,86 +9,83 @@
     <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
+
+
 <body>
-    <section class="heading">
-        <h1>Gotta Catch'em All!!!</h1>
-    </section>
-    <section class="game">
-        <div class="chooseCharacter">
-            <h2 class="chooseF">Choose your fighter!</h1>
-          <div class="characters">
-            <div class="character1">
-                <a id="character1" href="#">
-                <p>Charmander</p>
-                <img src="assets/images/char1.png" height="140px">
-                <p id="hP1"></p>
-                </a>
-            </div>
-            <div  class="character2">
-                <a id="character2" href="#">
-                <p>Squirtle</p>
-                <img src="assets/images/char2.png" height="140px">
-                <p id="hP2"></p>
+
+  <section class="heading">
+    <h1>Gotta Catch'em All!!!</h1>
+  </section>
+
+  <section class="game">
+    <div class="chooseCharacter">
+      <h2 class="chooseF">Choose your fighter!</h1>
+        <div class="characters">
+          <div class="character1">
+            <a id="character1" href="#">
+              <p>Charmander</p>
+              <img src="assets/images/char1.png" height="140px">
+              <p id="hP1"></p>
             </a>
-            </div>
-            <div  class="character3">
-                <a id="character3" href="#">
-                <p>Pikachu</p>
-                
-                      <img src="assets/images/char3.png" height="140px">
-                
-                <p id="hP3"></p>
+          </div>
+          <div  class="character2">
+            <a id="character2" href="#">
+              <p>Squirtle</p>
+              <img src="assets/images/char2.png" height="140px">
+              <p id="hP2"></p>
             </a>
-            </div>
-            <div  class="character4">
-                <a id="character4" href="#">
-                <p>Bulbasaur</p>
-                <img src="assets/images/char4.png" height="140px">
-                <p id="hP4"></p>
+          </div>
+          <div  class="character3">
+            <a id="character3" href="#">
+              <p>Pikachu</p>
+              <img src="assets/images/char3.png" height="140px">
+              <p id="hP3"></p>
             </a>
-            </div>
+          </div>
+          <div  class="character4">
+            <a id="character4" href="#">
+              <p>Bulbasaur</p>
+              <img src="assets/images/char4.png" height="140px">
+              <p id="hP4"></p>
+            </a>
+          </div>
           <img id="winPhoto" src="assets/images/endGame.png" height="400px">
+        </div>
+    </div>
+
+    <div class="enemyCharacters">
+      <h2>Choose one to fight!</h2>
+      <div class="enemies"></div>
+    </div>
+
+    <div class="arena">
+      <div class="arenaHeading">
+        <div class="gameStats">
+          <p class="directions">Click button to attack your enemy, but watchout he has a counter attack!</p>
+          <p class="yourHP"></p>
+          <p class="defenderHP"></p>
+          <p class="stats"></p>
+        </div>
+
+        <div class="defender">
+          <h1 class="defenderHead">Defender!</h1>
+          <div id="defenderImage"></div>
+          <div id="pokeBall">
+            <img id="gotOne" src="assets/images/gotOne.png" height="150px">
           </div>
         </div>
-
-        <div class="enemyCharacters">
-            <h2>Choose one to fight!</h2>
-            <div class="enemies"></div>
-            
-        </div>
-
-        <div class="arena">
-            <div class="arenaHeading">
-                <div class="gameStats">
-                    <p class="directions">Click button to attack your enemy, but watchout he has a counter attack!</p>
-                    <p class="yourHP"></p>
-                    <p class="defenderHP"></p>
-                    <p class="stats"></p>
-                </div>
-                <div class="defender">
-                            <h1 class="defenderHead">Defender!</h1>
-                           
-                         
-                            <div id="defenderImage"></div>
-                            <div id="pokeBall">
-                                <img id="gotOne" src="assets/images/gotOne.png" height="150px">
-                            </div>
-
-                        </div>
+    </div>
                 
-                </div>
-                <div class="direct">
-                    <p id="direct"></p>
-                    <button id="attack">Attack</button>
-                </div>
+    <div class="direct">
+      <p id="direct"></p>
+      <button id="attack">Attack</button>
+    </div>
                 
-            </div>
-        </div>
+    </div>
+    </div>
 
-        <div class="lost">
-            <p>hello</p>
-        </div>
-    </section>
+    <div class="lost"></div>
+  </section>
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
 <script src="assets/javascript/game.js"></script>
