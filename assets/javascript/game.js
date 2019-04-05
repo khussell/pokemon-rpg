@@ -18,26 +18,26 @@ var characters= [
        {
           name: "Charmander",
           hP: 150,
-          attackPower: 9,
-          counterAttackPower: 12
+          attackPower: 8,
+          counterAttackPower: 20
       },
        {
           name: "Squirtle",
           hP: 100,
-          attackPower: 5,
-          counterAttackPower: 7
+          attackPower: 15,
+          counterAttackPower: 5
       },
        {
           name: "Pikachu",
-          hP: 130,
-          attackPower: 8,
+          hP: 120,
+          attackPower: 9,
           counterAttackPower: 9
       },
        {
           name: "Bulbasaur",
-          hP: 120,
-          attackPower: 7,
-          counterAttackPower: 5
+          hP: 180,
+          attackPower: 3,
+          counterAttackPower: 25
       }
     ]
 
@@ -177,11 +177,26 @@ bulb.on("click", function(){
 $("#attack").on("click", function(){
  var initialAttack= offenseChar["attackPower"]
      counterAttackPower= defender["counterAttackPower"]
-     if(attackPower === 0){
+     if(defender === ""){
+       $(".directions").text("You need to choose someone to fight!")
+     }else if(attackPower === 0){
        attackPower= offenseChar["attackPower"]
        oChangedHP= offenseChar["hP"]
-       oChangedHP -= counterAttackPower
        dChangedHP -= attackPower
+       if(dChangedHP <=0){
+        $(".stats").html("You gave " + attackPower + " damage and took NO damage.")
+        game.characterHPText()
+        $(".defenderHP").html("Defender HP: " + dChangedHP)   
+        $(".yourHP").html("Your HP: " + oChangedHP)
+        attackPower += initialAttack
+       game.didPlayerLose()
+       game.didDefenderLose()
+
+
+
+       }else{
+       oChangedHP -= counterAttackPower
+       
        game.characterHPText()
        $(".defenderHP").html("Defender HP: " + dChangedHP)   
        $(".yourHP").html("Your HP: " + oChangedHP)
@@ -189,10 +204,22 @@ $("#attack").on("click", function(){
        attackPower += initialAttack
        game.didPlayerLose()
        game.didDefenderLose()
-     
+       }
+    
+      
+     }else{
+      dChangedHP -= attackPower  
+     if(dChangedHP <=0){
+      $(".stats").html("You gave " + attackPower + " damage and took NO damage.")
+      game.characterHPText()
+      $(".defenderHP").html("Defender HP: " + dChangedHP)   
+      $(".yourHP").html("Your HP: " + oChangedHP)
+      attackPower += initialAttack
+     game.didPlayerLose()
+     game.didDefenderLose()
      }else{
       oChangedHP -= counterAttackPower
-      dChangedHP -= attackPower
+      
       game.characterHPText()
       $(".defenderHP").html("Defender HP: " + dChangedHP)   
       $(".yourHP").html("Your HP: " + oChangedHP)
@@ -200,9 +227,10 @@ $("#attack").on("click", function(){
       attackPower += initialAttack
       game.didPlayerLose()
       game.didDefenderLose()
-      
-     }
+    }
+  }
 
+    
     
     
   
@@ -230,12 +258,12 @@ var game = {
       }else{
         //defender lost, if there are no other defenders available this.win()
         //defender lost so their image will disappear and defender stats will re-initialize
+        defender=""
         $("#defenderImage").empty()
         $(".defenderHead").hide()
         $("#defenderImage").css("border", "none")
         $("#gotOne").show()
         $(".directions").text("Yay, you got one! Click another one to fight!")
-        defender=""
         dChangedHP= 0
         counterAttackPower= 0
         $(".defenderHP").html("Defender HP: " + dChangedHP)   
