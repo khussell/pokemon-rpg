@@ -9,4 +9,4 @@ This is an RPG where you will pick a character as your fighter from four choices
 
 Link?
 
-https://khussell.github.io/unit-4-game2/
+https://khussell.github.io/pokemon-rpg/
